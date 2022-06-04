@@ -8,7 +8,8 @@ import { links } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const Sidebar = () => {
-  const { activeMenu, setActiveMenu, screenSize } = useStateContext();
+  const { activeMenu, setActiveMenu, screenSize, currentColor } =
+    useStateContext();
   const handleCloseSidebar = () => {
     if (activeMenu && screenSize <= 900) {
       setActiveMenu(false);
@@ -20,7 +21,7 @@ const Sidebar = () => {
     "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2 ";
 
   return (
-    <div className="ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10 ">
+    <div className="ml-3 h-screen overflow-auto md:hover:overflow-auto pb-10">
       {activeMenu && (
         <>
           <div className="flex justify-between items-center">
@@ -35,9 +36,9 @@ const Sidebar = () => {
               <button
                 type="button"
                 onClick={() =>
-                  setActiveMenu((prevActiveMenu) => prevActiveMenu)
+                  setActiveMenu((prevActiveMenu) => !prevActiveMenu)
                 }
-                className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 hidden md:block"
+                className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:block"
               >
                 <MdOutlineCancel />
               </button>
@@ -51,6 +52,9 @@ const Sidebar = () => {
                   <NavLink
                     to={`/${link.name}`}
                     key={link.name}
+                    style={({ isActive }) => ({
+                      backgroundColor: isActive ? currentColor : "",
+                    })}
                     onClick={handleCloseSidebar}
                     className={({ isActive }) =>
                       isActive ? activeLink : normaLink
