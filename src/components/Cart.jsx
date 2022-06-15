@@ -7,20 +7,23 @@ import { cartData } from "../data/dummy";
 import { Button } from ".";
 
 const Cart = () => {
-  const { currentColor } = useStateContext();
+  const { currentColor, setActiveMenu, isClicked, setIsClicked } =
+    useStateContext();
 
   return (
     <div className="bg-half-transparent w-full fixed nav-item top-0 right-0 ">
-      <div className="float-right h-screen  duration-1000 ease-in-out dark:text-gray-200 transition-all dark:bg-[#484B52] bg-white md:w-400 p-8">
+      <div className="float-right h-screen  duration-1000 ease-in-out dark:text-gray-200 transition-all dark:bg-[#484B52] bg-white md:w-400 p-4">
         <div className="flex justify-between items-center">
           <p className="font-semibold text-lg">Shopping Cart</p>
-          <Button
-            icon={<MdOutlineCancel />}
-            color="rgb(153, 171, 180)"
-            bgHoverColor="light-gray"
-            size="2xl"
-            borderRadius="50%"
-          />
+          <button
+            type="button"
+            onClick={() => {
+              setIsClicked(false);
+            }}
+            className="text-2xl p-3 hover:drop-shadow-xl rounded-full hover:bg-light-gray "
+          >
+            <MdOutlineCancel />
+          </button>
         </div>
         {cartData?.map((item, index) => (
           <div key={index}>
