@@ -1,3 +1,7 @@
+##Syncfusion dashboard
+A fully responsive fuctional dashboard created with react, using syncfusion ui components(calendar, kanban, charts e.t.c , with theme mode and dark mode enabled
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
