@@ -1,4 +1,4 @@
-##Syncfusion dashboard
+## Syncfusion dashboard
 A fully responsive fuctional dashboard created with react, using syncfusion ui components(calendar, kanban, charts e.t.c , with theme mode and dark mode enabled
 
 
